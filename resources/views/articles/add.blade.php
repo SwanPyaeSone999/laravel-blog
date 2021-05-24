@@ -15,13 +15,11 @@
             <div class="form-group">
                 <label>Category</label>
                 <select class="form-control" name="category_id">
-                    <option value="1">News</option>
-                    <option value="2">Tech</option>
-                    {{-- @foreach ($categories as $category)
-                        <option value="{{ $category['id'] }}">
-                            {{ $category['name'] }}
+                    @foreach ($category as $category)
+                        <option value="{{ $category->id }}">
+                            {{ $category->name }}
                         </option>
-                    @endforeach --}}
+                    @endforeach
                 </select>
             </div>
             <input type="submit" value="Add Article" class="btn btn-primary">

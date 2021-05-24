@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ArticleValidate;
 use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -29,7 +30,8 @@ class ArticleController extends Controller
 
     public function add()
     {
-            return view('articles.add');
+            $category = Category::all();
+            return view('articles.add',compact('category'));
     }
 
     public function create(ArticleValidate $request)
@@ -52,7 +54,8 @@ class ArticleController extends Controller
     public function edit($id)
     {
         $edit = Article::find($id);
-        return view('articles.edit',compact('edit'));
+        $category = Category::all();
+        return view('articles.edit',compact('edit','category'));
     }
 
 
